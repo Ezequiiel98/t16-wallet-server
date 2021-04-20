@@ -5,6 +5,11 @@ const getAllUsers = async () => {
     attributes: {
       exclude: ["password"],
     },
+    include: {
+      model: db.Account,
+      as: "accounts",
+      attributes: ["currency", "id"],
+    },
   });
 
   return { users: usersFromDB };
