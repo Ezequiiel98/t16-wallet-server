@@ -1,3 +1,4 @@
 module.exports = {
-  usersMock: require('./usersMock')
+  usersMock: require('./usersMock'),
+  accountsMock: require('./accountsMock')
 }
