@@ -7,11 +7,13 @@ const controllerWithTryCatch = ({ controller, sucessStatusCode }) => {
 
       Response.success(res, data, sucessStatusCode);
     } catch (error) {
+      const expectedError = error.name === 'CustomError';
       Response.error(
         res, 
         error,
         error.message,
         error.status,
+        expectedError,
       );
     }
   }
