@@ -7,11 +7,14 @@ class Response {
     })
   }
 
-  static error (res, err, message = 'Internal server error.', status = 500) {
+  static error (res, err, message, status = 500, expectedError = false) {
+    const defaultError = 'Húbo un error inesperado';
+    const errorMessage = expectedError ? message : defaultError;
+    
     return res.status(status).send({
       ok: false,
       status,
-      data: { message }
+      errors: [{ error: errorMessage }],
     })
   }
 }
