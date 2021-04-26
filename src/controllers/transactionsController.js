@@ -1,7 +1,10 @@
 const db = require("../db/models");
+const CustomError = require("../utils/CustomError");
 
 const getAllTransactions = async () => {
   const transactionsFromDB = await db.Transaction.findAll();
+
+  if (!transactionsFromDB) throw new CustomError("No se encontró ningún registro")
 
   return { transactions: transactionsFromDB };
 };

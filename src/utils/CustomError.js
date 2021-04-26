@@ -1,6 +1,6 @@
 class CustomError extends Error {
   constructor(data = { 
-    message: 'Húbo un error inesperado.',
+    message: 'Hubo un error inesperado.',
     status: 500,
   }) {
     const message = typeof data === 'string' ? data : data.message;
