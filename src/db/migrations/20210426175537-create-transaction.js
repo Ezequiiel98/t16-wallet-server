@@ -25,7 +25,12 @@ module.exports = {
         allowNull: false,
         references: { model: 'Accounts', key: 'id' },
         onDelete: 'CASCADE'
-      },   
+      }, 
+      depositId: {
+        type: Sequelize.INTEGER,
+        references: { model: 'FixedTermDeposits', key: 'id' },
+        onDelete: 'CASCADE'
+      },      
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
