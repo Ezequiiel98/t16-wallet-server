@@ -1,20 +1,13 @@
 const Response = require('./Response');
 
-const controllerWithTryCatch = ({ controller, sucessStatusCode }) => {
+const controllerWithTryCatch = ({ controller, sucessStatusCode, errorStatusCode }) => {
   return async (req, res, ...restParams) => {
     try {
       const data = await controller(req, res, ...restParams);
 
       Response.success(res, data, sucessStatusCode);
     } catch (error) {
-      const expectedError = error.name === 'CustomError';
-      Response.error(
-        res, 
-        error,
-        error.message,
-        error.status,
-        expectedError,
-      );
+      Response.error(res, error, error.message, errorStatusCode);
     }
   }
 };

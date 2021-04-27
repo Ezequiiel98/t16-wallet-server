@@ -10,7 +10,7 @@ const bodyValidator = (arrayOfChecks, check = "body") => async (req, res, next) 
   const errorMessage = errors.array()[0].msg;
 
   if (!errors.isEmpty())
-    return Response.error(res, errorMessage, errorMessage, 400, true);
+    return Response.error(res, errorMessage, errorMessage, 400);
 
   next();
 };

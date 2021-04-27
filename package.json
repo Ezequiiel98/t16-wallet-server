@@ -5,8 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+    "dev": "nodemon index.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",

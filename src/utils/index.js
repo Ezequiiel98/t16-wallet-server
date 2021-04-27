@@ -1,5 +1,4 @@
 module.exports = {
   Response: require('./Response'),
-  controllerTryCatch: require('./controllerWithTryCatch'),
-  CustomError: require('./CustomError')
+  controllerTryCatch: require('./controllerWithTryCatch')
 }
