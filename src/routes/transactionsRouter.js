@@ -1,13 +1,13 @@
 const router = require('express').Router()
 const { controllerTryCatch } = require('../utils')
-const { usersController } = require('../controllers')
+const { transactionsController } = require('../controllers')
 
 router.get(
   '/',
   controllerTryCatch({
     sucessStatusCode: 200,
     errorStatusCode: 500,
-    controller: usersController.getAllUsers
+    controller: transactionsController.getAllTransactions
   })
 )
 
