@@ -14,7 +14,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'accountId',
         as: 'transactions',
         onDelete: 'CASCADE'
-      })
+      });
+      Account.hasMany(models.FixedTermDeposit, {
+        foreignKey: 'accountId',
+        as: 'fixed_term_deposits',
+        onDelete: 'CASCADE'
+      });      
     }
   };
   Account.init({
