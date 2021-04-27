@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Transactions', {
+    await queryInterface.createTable('FixedTermDeposits', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,26 +11,18 @@ module.exports = {
       amount: {
         type: Sequelize.FLOAT
       },
-      concept: {
-        type: Sequelize.STRING
+      opening_date: {
+        type: Sequelize.DATE
       },
-      type: {
-        type: Sequelize.STRING
+      closing_date: {
+        type: Sequelize.DATE
       },
-      isEditable: {
-        type: Sequelize.BOOLEAN
-      },   
       accountId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'Accounts', key: 'id' },
         onDelete: 'CASCADE'
       }, 
-      depositId: {
-        type: Sequelize.INTEGER,
-        references: { model: 'FixedTermDeposits', key: 'id' },
-        onDelete: 'CASCADE'
-      },      
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -42,6 +34,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Transactions');
+    await queryInterface.dropTable('FixedTermDeposits');
   }
 };
