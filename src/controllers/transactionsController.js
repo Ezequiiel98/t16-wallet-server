@@ -6,6 +6,10 @@ const getAllTransactions = async () => {
     attributes: {
       exclude: ["depositId"],
     },
+    include: {
+      model: db.TransactionLog,
+      as: "logs",
+    },
   });
 
   if (!transactionsFromDB) throw new CustomError({ status: 400, message: 'No se encontró ningún registro' })
