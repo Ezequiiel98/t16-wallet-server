@@ -30,6 +30,11 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: 'FixedTermDeposits', key: 'id' },
         onDelete: 'CASCADE'
+      }, 
+      transferenceId: {
+        type: Sequelize.INTEGER,
+        references: { model: 'Transferences', key: 'id' },
+        onDelete: 'CASCADE'
       },      
       createdAt: {
         allowNull: false,
