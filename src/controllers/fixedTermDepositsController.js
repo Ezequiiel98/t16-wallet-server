@@ -7,6 +7,9 @@ const getAllDeposits = async () => {
     include: {
       model: db.Transaction,
       as: "transactions",
+      attributes: {
+        exclude: ["transferenceId","depositId"]
+      }  
     }
   })
 

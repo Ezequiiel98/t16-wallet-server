@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Transactions', {
+    await queryInterface.createTable('Transferences', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,31 +11,19 @@ module.exports = {
       amount: {
         type: Sequelize.FLOAT
       },
-      concept: {
-        type: Sequelize.STRING
-      },
-      type: {
-        type: Sequelize.STRING
-      },
-      isEditable: {
+      isRefunded: {
         type: Sequelize.BOOLEAN
-      },   
-      accountId: {
+      },
+      accountIssuerId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: { model: 'Accounts', key: 'id' },
         onDelete: 'CASCADE'
-      }, 
-      depositId: {
+      },
+      accountAcquierId: {
         type: Sequelize.INTEGER,
-        references: { model: 'FixedTermDeposits', key: 'id' },
+        references: { model: 'Accounts', key: 'id' },
         onDelete: 'CASCADE'
-      }, 
-      transferenceId: {
-        type: Sequelize.INTEGER,
-        references: { model: 'Transferences', key: 'id' },
-        onDelete: 'CASCADE'
-      },      
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -47,6 +35,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Transactions');
+    await queryInterface.dropTable('Transferences');
   }
 };

@@ -4,8 +4,8 @@ const CustomError = require("../utils/CustomError");
 const getAllTransactions = async () => {
   const transactionsFromDB = await db.Transaction.findAll({
     attributes: {
-      exclude: ["depositId"],
-    }    
+      exclude: ["depositId", "transferenceId"],
+    },
   });
 
   if (!transactionsFromDB) throw new CustomError({ status: 400, message: 'No se encontró ningún registro' })
