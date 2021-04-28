@@ -4,7 +4,7 @@ const CustomError = require("../utils/CustomError");
 const getAllTransactions = async () => {
   const transactionsFromDB = await db.Transaction.findAll({
     attributes: {
-      exclude: ["depositId"],
+      exclude: ["depositId", "transferenceId"],
     },
   });
 
