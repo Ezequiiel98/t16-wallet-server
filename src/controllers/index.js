@@ -5,4 +5,5 @@ module.exports = {
   fixedTermDepositsController: require("./fixedTermDepositsController"),
   transactionLogsController: require("./transactionLogsController"),
   transferencesController: require("./transferencesController"),
+  refundsController: require("./refundsController"),
 };
