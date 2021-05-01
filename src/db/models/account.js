@@ -19,7 +19,17 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'accountId',
         as: 'fixed_term_deposits',
         onDelete: 'CASCADE'
-      });      
+      }); 
+      Account.hasOne(models.Transference, {
+        foreignKey: 'accountIssuerId',
+        as: 'accountIssuer',
+        onDelete: 'CASCADE'
+      });     
+      Account.hasOne(models.Transference, {
+        foreignKey: 'accountAcquierId',
+        as: 'accountAcquier',
+        onDelete: 'CASCADE'
+      });     
     }
   };
   Account.init({

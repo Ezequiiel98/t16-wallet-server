@@ -16,11 +16,13 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE'
       });
       Transference.belongsTo(models.Account, {
-        foreignKey: 'accountIssuerId',        
+        foreignKey: 'accountIssuerId',
+        as: 'accountIssuer',        
         onDelete: 'CASCADE'
       });
       Transference.belongsTo(models.Account, {
-        foreignKey: 'accountAcquierId',        
+        foreignKey: 'accountAcquierId', 
+        as: 'accountAcquier',       
         onDelete: 'CASCADE'
       });
     }
