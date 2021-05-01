@@ -33,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Account.init({
+    name: DataTypes.STRING,
     currency: DataTypes.INTEGER,
     userId: {
       type: DataTypes.INTEGER,
