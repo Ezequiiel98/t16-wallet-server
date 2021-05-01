@@ -1,11 +1,15 @@
 const db = require("../db/models");
 const CustomError = require("../utils/CustomError");
-const { RefundRepository } = require("../utils/dataAccess/repositories");
-const repository =  new RefundRepository(db);
+const UnitOfWork = require("../utils/dataAccess/UoW/UnitOfWork");
+const uow =  new UnitOfWork(db);
 
 const getAllRefunds = async () => {
   
-  const refundsFromDB = await repository.getAll();
+  await uow.init()
+
+  const refundsFromDB = await uow.RefundRepository().getAll();
+  
+  await uow.commit()
 
   if (!refundsFromDB) throw new CustomError({ status: 400, message: 'No se encontró ningún registro' })
 
