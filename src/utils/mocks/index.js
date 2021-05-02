@@ -6,4 +6,5 @@ module.exports = {
   transactionLogsMock: require('./transactionLogsMock'),
   transferencesMock: require('./transferencesMock'),
   refundsMock: require('./refundsMock'),
+  currenciesMock: require('./currenciesMock'),
 }
