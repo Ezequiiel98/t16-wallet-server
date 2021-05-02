@@ -11,8 +11,11 @@ module.exports = {
       name: {
         type: Sequelize.STRING       
       },
-      currency: {
-        type: Sequelize.INTEGER
+      currencyId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'Currencies', key: 'id' },
+        onDelete: 'CASCADE'
       },
       userId: {
         type: Sequelize.INTEGER,

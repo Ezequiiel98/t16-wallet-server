@@ -29,12 +29,16 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'accountAcquierId',
         as: 'accountAcquier',
         onDelete: 'CASCADE'
+      });
+      Account.belongsTo(models.Currency, {
+        foreignKey: 'currencyId',
+        as: "currency", 
+        onDelete: 'CASCADE'
       });     
     }
   };
   Account.init({
-    name: DataTypes.STRING,
-    currency: DataTypes.INTEGER,
+    name: DataTypes.STRING,    
     userId: {
       type: DataTypes.INTEGER,
       references: { model: 'User', key: 'id' },
