@@ -7,6 +7,7 @@ const transactionLogsRouter = require("./transactionLogsRouter");
 const transferencesRouter = require("./transferencesRouter");
 const refundsRouter = require("./refundsRouter");
 const currenciesRouter = require("./currenciesRouter");
+const ratesRouter = require("./ratesRouter");
 const router = Router();
 
 router.use("/users", usersRouter);
@@ -17,5 +18,6 @@ router.use("/transaction-logs", transactionLogsRouter);
 router.use("/transferences", transferencesRouter);
 router.use("/refunds", refundsRouter);
 router.use("/currencies", currenciesRouter);
+router.use("/rates", ratesRouter);
 
 module.exports = router;
