@@ -6,4 +6,5 @@ module.exports = {
   transactionLogsController: require("./transactionLogsController"),
   transferencesController: require("./transferencesController"),
   refundsController: require("./refundsController"),
+  currenciesController: require("./currenciesController"),
 };
