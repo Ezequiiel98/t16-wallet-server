@@ -9,6 +9,15 @@ router.get(
     errorStatusCode: 500,
     controller: usersController.getAllUsers
   })
-)
+);
+
+router.get(
+  '/page/:page?',
+  controllerTryCatch({
+    sucessStatusCode: 200,
+    errorStatusCode: 500,
+    controller: usersController.getAllUsersWithPagination
+  })
+);
 
 module.exports = router
