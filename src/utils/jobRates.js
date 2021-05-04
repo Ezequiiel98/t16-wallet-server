@@ -40,4 +40,4 @@ const parseStringCommaToFloat = (string) => {
   return parseFloat(string.replace(',', ''))
 }
 
-module.exports =  runDailyJobForRates;
+module.exports = runDailyJobForRates;

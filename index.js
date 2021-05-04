@@ -1,6 +1,6 @@
 const app = require("./src/App");
 const { API_PORT } = require('./config');
-const runDailyJobForRates = require('./src/utils/jobRates');
+const { runDailyJobForRates } = require('./src/utils');
 
 runDailyJobForRates();
 
